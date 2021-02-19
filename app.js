@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const date = require(__dirname + "/date.js");
 const _ = require("lodash");
+require("dotenv").config();
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(__dirname + "/public"));
 
-const url = "mongodb+srv://admin-alejandro:test123@projects.fn4fi.mongodb.net/todolistDB";
+const url = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASS + "@projects.fn4fi.mongodb.net/todolistDB";
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -164,6 +165,6 @@ app.get("/about", (req, res) => {
     res.render("about");
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000.");
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Server has started succesfully.");
 });
