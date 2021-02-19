@@ -1,6 +1,6 @@
 # TodoList
-Allows for creating new task and to check off completed task.
-
+Allows for creating new task and to delete task checking the box. The app is powered using express for back end and mongodb for the database.
+[To view live website click on this link](https://todo-list436.herokuapp.com)
 ## Run application
 Navigate to the root directory of project to install dependencies.
 ```
